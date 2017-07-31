@@ -1,0 +1,118 @@
+body {
+	background-color: lightblue;
+}
+#game {
+	padding: 15px 0 0 100px;
+}
+input {
+	display: none;
+	position: absolute;
+}
+.cell {
+	display: inline-block;
+	outline: 3px solid #bbb;
+	width: 100px;
+	height: 100px;
+	background: #FFFFFF;
+	text-align: center;
+	line-height: 6;
+}
+label {
+	opacity: 0.2;
+	font-size: 15px;
+	background: transparent;
+}
+[class^="k"]:hover {
+	color: red;
+	opacity: 1;
+	cursor: pointer;
+}
+[class^="n"]:hover {
+	color: green;
+	opacity: 1;
+	cursor: pointer;
+}
+.k:checked + .n + .cell .nn,
+.k + .n:checked + .cell .kk {
+	display: none;
+}
+.k:checked + .n + .cell .kk,
+.k + .n:checked + .cell .nn {
+	opacity: 1;
+	font-size: 30px;
+	line-height: 2;
+}
+/* для Х
+/* по горизонтали 
+/* первая строка */
+.k:checked ~ .k:checked ~ .k:checked ~ 
+input ~ input ~ input ~ input ~ input ~ input ~
+input ~ input ~ input ~ input ~ input ~ input ~ .result:after,
+/*вторая строка */
+input ~ input ~ input ~ input ~ input ~ input ~
+.k:checked ~ .k:checked ~ .k:checked ~ 
+input ~ input ~ input ~ input ~ input ~ input ~ .result:after,
+/* третья строка*/
+input ~ input ~ input ~ input ~ input ~ input ~
+input ~ input ~ input ~ input ~ input ~ input ~
+.k:checked ~ .k:checked ~ .k:checked ~ .result:after,
+/* по вертикали
+/* первый столбец*/
+.k:checked ~ input ~ input ~ input ~ input ~
+.k:checked ~ input ~ input ~ input ~ input ~ 
+.k:checked ~ input ~ input ~ .result:after,
+/*второй столбец*/
+input ~ input ~ .k:checked ~ input ~ input ~
+input ~ input ~ .k:checked ~ input ~ input ~
+input ~ input ~ .k:checked ~ input ~ input ~ .result:after,
+/*третий столбец*/
+input ~ input ~ input ~ input ~ .k:checked ~
+input ~ input ~ input ~ input ~ .k:checked ~
+input ~ input ~ input ~ input ~ .k:checked ~ .result:after,
+/*диагонали*/
+.k:checked ~ input ~ input ~ input ~ input ~
+input ~ input ~ .k:checked ~ input ~ input ~
+input ~ input ~ input ~ input ~ .k:checked ~ .result:after,
+
+input ~ input ~ input ~ input ~ .k:checked ~
+input ~ input ~ .k:checked ~ input ~ input ~ 
+.k:checked ~ input ~ input ~ input ~ input ~ .result:after {
+	content: "X победил";
+}
+/* для O
+/* по горизонтали 
+/* первая строка */
+.n:checked ~ .n:checked ~ .n:checked ~ 
+input ~ input ~ input ~ input ~ input ~ input ~
+input ~ input ~ input ~ input ~ input ~ input ~ .result:after,
+/*вторая строка */
+input ~ input ~ input ~ input ~ input ~ input ~
+.n:checked ~ .n:checked ~ .n:checked ~ 
+input ~ input ~ input ~ input ~ input ~ input ~ .result:after,
+/* третья строка*/
+input ~ input ~ input ~ input ~ input ~ input ~
+input ~ input ~ input ~ input ~ input ~ input ~
+.n:checked ~ .n:checked ~ .n:checked ~ .result:after,
+/* по вертикали
+/* первый столбец*/
+.n:checked ~ input ~ input ~ input ~ input ~
+.n:checked ~ input ~ input ~ input ~ input ~ 
+.n:checked ~ input ~ input ~ .result:after,
+/*второй столбец*/
+input ~ input ~ .n:checked ~ input ~ input ~
+input ~ input ~ .n:checked ~ input ~ input ~
+input ~ input ~ .n:checked ~ input ~ input ~ .result:after,
+/*третий столбец*/
+input ~ input ~ input ~ input ~ .n:checked ~
+input ~ input ~ input ~ input ~ .n:checked ~
+input ~ input ~ input ~ input ~ .n:checked ~ .result:after,
+/*диагонали*/
+.n:checked ~ input ~ input ~ input ~ input ~
+input ~ input ~ .n:checked ~ input ~ input ~
+input ~ input ~ input ~ input ~ .n:checked ~ .result:after,
+
+input ~ input ~ input ~ input ~ .n:checked ~
+input ~ input ~ .n:checked ~ input ~ input ~ 
+.n:checked ~ input ~ input ~ input ~ input ~ .result:after {
+	content: "O победил";
+}
